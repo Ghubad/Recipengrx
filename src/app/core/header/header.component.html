@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a routerLink="/" class="navbar-brand">Recipe Book</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" style="cursor: pointer;" routerLink="/recipes">Recipes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" style="cursor: pointer;" routerLink="/shopping-list">Shopping List</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <ng-template [ngIf]="!isAuthenticated()">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/signup">Register</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/signin">Sign In</a>
+        </li>
+      </ng-template>
+      <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" style="cursor: pointer;" *ngIf="isAuthenticated()"  (click)="onLogout()">Logout</a>
+          </li>
+    
+        <li class="nav-item dropdown ml-auto" *ngIf="isAuthenticated()" >
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Manage
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+          </div>
+        </li>
+     
+
+    </ul>
+  </div>
+  <!-- <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li>
+            <li><a href="" (click)="onSelect('shopping-list')" >Shopping List</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" >
+            <li class="dropdown" appDropdown>
+                <a href="" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+                <ul class="dropdown-menu" >
+                    <li><a href="">Save Data</a></li>
+                    <li><a href="">Fetch Data</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div> -->
+</nav>

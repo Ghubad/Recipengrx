@@ -1,0 +1,17 @@
+
+
+<a style="cursor: pointer;" 
+class="list-group-item clearfix"
+[routerLink]="[index]"
+routerLinkActive="active" >
+  <div class="pull-left">
+    <h4 class="">{{ recipedata.name }} <i class="fas fa-edit"></i>  </h4>
+    <p class="">{{ recipedata.description }}</p>
+    
+  </div>
+  <span class="pull-right">
+    <img [src]="recipedata.imagePath" alt="{{ recipedata.name }}" class="img-fluid" style="max-height: 50px;">
+  </span>
+  
+</a>
+<br>
