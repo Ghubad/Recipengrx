@@ -1,4 +1,4 @@
-import { HttpInterceptor, HttpHandler, HttpEvent, HttpRequest, HttpProgressEvent } from '@angular/common/http';
+import { HttpInterceptor, HttpHandler, HttpEvent, HttpRequest} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import * as fromApp from '../store/app.reducers';

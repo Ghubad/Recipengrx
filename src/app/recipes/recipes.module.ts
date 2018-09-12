@@ -8,8 +8,11 @@ import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { RecipesRoutingModule } from './recipes-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { recipeReducer } from './store/recipe.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { RecipeEffects } from './store/recipe.effects';
 
 @NgModule({
 	declarations: [
@@ -24,7 +27,9 @@ import { RecipesRoutingModule } from './recipes-routing.module';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RecipesRoutingModule
+        RecipesRoutingModule,
+        StoreModule.forFeature('recipes', recipeReducer),
+        EffectsModule.forFeature( [RecipeEffects] )
     ]
 })
 export class RecipesModule {}
